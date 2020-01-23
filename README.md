@@ -8,6 +8,19 @@ All the illustrations uses [scss](https://sass-lang.com/) stylesheet and [pug-cl
 
 **Rocket**, **House** and **Headphones** are my own creations from scratch with the knowledge learned from the above mention tutorial.
 
+## Demo
+[Smiley_face](https://johandjarvkarltorp.github.io/css-only-illustrations/smiley_face)
+
+[Polaroid](https://johandjarvkarltorp.github.io/css-only-illustrations/polaroid)
+
+[lighthouse](https://johandjarvkarltorp.github.io/css-only-illustrations/lighthouse)
+
+[Rocket](https://johandjarvkarltorp.github.io/css-only-illustrations/rocket)
+
+[House](https://johandjarvkarltorp.github.io/css-only-illustrations/house)
+
+[Headphones](https://johandjarvkarltorp.github.io/css-only-illustrations/headphones)
+
 ## Setup and Configuration
 If you want to edit the illustrations:
 - clone the repo `git@github.com:JohanDjarvKarltorp/css-only-illustrations.git`
