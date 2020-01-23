@@ -1,0 +1,623 @@
+$background: #002D45;
+$headphones-jack-color: #B5B6BA;
+$light-blue: #00EEFF;
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: $background;
+}
+
+* {
+    position: absolute;
+}
+
+*:after,
+*:before {
+    position: absolute;
+    content: '';
+}
+
+.container {
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    top: 60%;
+    left: 50%;
+    width: 1000px;
+    height: 600px;
+
+    .headphone-jack {
+        width: 0.5%;
+        height: 4%;
+        left: 40%;
+        top: 41%;
+        background: $headphones-jack-color;
+        clip-path: polygon(100% 10%, 100% 100%, 0 100%, 0 10%, 50% 0);
+
+        &:before {
+            width: 100%;
+            height: 6%;
+            top: 30%;
+            background: darken($headphones-jack-color, 40%);
+        }
+
+        &:after {
+            width: 100%;
+            height: 6%;
+            top: 55%;
+            background: darken($headphones-jack-color, 40%);
+        }
+    }
+
+    .headphone-jack-base {
+        width: 1.2%;
+        height: 6%;
+        top: 45%;
+        left: 39.65%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: darken($headphones-jack-color, 50%);
+
+        &:after {
+            width: 20%;
+            height: 40%;
+            top: 30%;
+            left: 55%;
+            border-radius: 10px;
+            background: darken($headphones-jack-color, 10%);
+        }
+    }
+
+    .cord-container {
+        top: 51%;
+        left: 39.9%;
+        width: 40%;
+        height: 49%;
+
+        .cord {
+            width: 1.5%;
+            height: 20%;
+            background: darken($light-blue, 10%);
+        }
+
+        .cord:nth-of-type(1) {
+            width: 24%;
+            height: 38%;
+            top: 20%;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            background: darken($light-blue, 10%);
+
+            &:after {
+                width: 87.5%;
+                height: 93%;
+                left: 6%;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+                background: $background;
+            }
+        }
+
+        .cord:nth-of-type(2) {
+            width: 1.5%;
+            top: 12%;
+            height: 8%;
+            left: 22.5%;
+            background: darken($light-blue, 10%);
+        }
+
+        .cord:nth-of-type(3) {
+            width: 24%;
+            height: 38%;
+            left: 22.5%;
+            top: -26%;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background: darken($light-blue, 10%);
+
+            &:after {
+                width: 87.5%;
+                height: 93%;
+                left: 6.5%;
+                top: 5%;
+                border-top-left-radius: 50%;
+                border-top-right-radius: 50%;
+                background: $background;
+            }
+
+            &:before {
+                width: 87.5%;
+                height: 15%;
+                top: 100px;
+                left: 6.5%;
+                background: $background;
+            }
+        }
+
+        .cord:nth-of-type(4) {
+            width: 1.5%;
+            height: 26%;
+            left: 45%;
+            top: 12%;
+            background: darken($light-blue, 10%);
+        }
+
+        .cord:nth-of-type(5) {
+            width: 41%;
+            height: 58%;
+            top: 37%;
+            left: 180px;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            background: darken($light-blue, 10%);
+
+            &:after {
+                width: 92.5%;
+                height: 90%;
+                left: 3.5%;
+                top: 5%;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+                background: $background;
+            }
+
+            &:before {
+                width: 100%;
+                height: 30px;
+                top: 0;
+                left: 3.5%;
+                background: $background;
+            }
+        }
+    }
+
+    .earcup-right {
+        width: 20%;
+        height: 35%;
+        top: 45%;
+        left: 60%;
+
+        .cord-connection {
+            width: 5%;
+            height: 10%;
+            bottom: 0;
+            left: 70%;
+            transform: translate(-50%, 0%);
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            background: darken($headphones-jack-color, 50%);
+
+            &:after {
+                width: 200%;
+                height: 100%;
+                bottom: 100%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+                background: darken($headphones-jack-color, 58%);
+            }
+        }
+    }
+
+    .earcup-left {
+        width: 20%;
+        height: 35%;
+        top: 45%;
+        left: 20%;
+
+        .earcup {
+            transform: rotate(180deg);
+            left: 35%;
+        }
+
+        .earcup-connection {
+            left: 35%;
+            z-index: 2;
+        }
+
+        .earcup-shadow {
+            left: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 10px;
+
+            &:before {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 10px;
+            }
+
+            &:after {
+                border-top-right-radius: 0;
+                border-top-left-radius: 10px;
+            }
+        }
+
+        .main-connection {
+            transform: rotate(180deg);
+            left: 0;
+
+            &:after {
+                top: 48%;
+            }
+        }
+
+        .headrest-connection {
+            transform: rotate(180deg);
+        }
+    }
+
+    .earcup-connection {
+        width: 2.5%;
+        height: 96%;
+        bottom: 2%;
+        left: 64%;
+        transform: translate(-50%, 0%);
+        border-radius: 5px;
+        background: darken($headphones-jack-color, 40%);
+        z-index: 2;
+    }
+
+    .earcup {
+        width: 50%;
+        height: 100%;
+        left: 38%;
+        transform: translate(-50%, 0%);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background: darken($light-blue, 15%);
+
+        &:before {
+            height: 100%;
+            width: 50%;
+            left: 20%;
+            border-radius: 15px;
+            background: darken($light-blue, 10%);
+        }
+
+        &:after {
+            height: 100%;
+            width: 30%;
+            left: 0;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            background: $light-blue;
+            z-index: -1;
+        }
+    }
+
+    .main-connection {
+        width: 35%;
+        height: 45%;
+        top: 20%;
+        left: 82%;
+        transform: translate(-50%, 0%);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: darken($headphones-jack-color, 43%);
+
+        .headrest-connection {
+            width: 60%;
+            height: 30%;
+            top: 50%;
+            transform: translate(0%, -50%);
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: darken($headphones-jack-color, 35%);
+        }
+
+        &:after {
+            width: 60%;
+            height: 30%;
+            top: 52%;
+            left: 1%;
+            transform: translate(0%, -50%);
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: darken($headphones-jack-color, 50%);
+            z-index: -1;
+        }
+    }
+
+    .earcup-shadow {
+        width: 35%;
+        height: 25px;
+        top: 62%;
+        left: 64.5%;
+        background: darken($headphones-jack-color, 45%);
+        border-bottom-right-radius: 10px;
+        z-index: 0;
+
+        &:before {
+            width: 100%;
+            height: 138%;
+            top: 65%;
+            background: darken($headphones-jack-color, 48%);
+            border-bottom-right-radius: 10px;
+            z-index: 0;
+        }
+
+        &:after {
+            width: 100%;
+            height: 150%;
+            top: -450%;
+            border-top-right-radius: 10px;
+            background: darken($headphones-jack-color, 50%);
+        }
+    }
+
+    .headrest-container {
+        width: 52%;
+        height: 70%;
+        top: -10%;
+        left: 24%;
+
+        .headrest {
+            width: 545px;
+            height: 80%;
+            top: -15.4%;
+            left: -10px;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background: $light-blue;
+            z-index: -1;
+
+            &:after {
+                width: 95%;
+                height: 120%;
+                left: 2.5%;
+                top: 5%;
+                border-top-left-radius: 50%;
+                border-top-right-radius: 50%;
+                background: $background;
+            }
+
+            &:before {
+                width: 100%;
+                height: 50%;
+                top: 52%;
+                background: $background;
+            }
+        }
+
+        .headrest-shadow {
+            width: 510px;
+            height: 80%;
+            top: -12.5%;
+            left: 8px;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background: darken($light-blue, 10%);
+            z-index: -1;
+
+            &:after {
+                width: 90%;
+                height: 100%;
+                left: 5%;
+                top: 6%;
+                border-top-left-radius: 50%;
+                border-top-right-radius: 50%;
+                background: $background;
+            }
+
+            &:before {
+                width: 100%;
+                height: 60%;
+                top: 48.5%;
+                background: $background;
+            }
+        }
+
+        .right {
+            left: 95%;
+            width: 5%;
+            height: 50%;
+            top: 50%;
+        }
+
+        .left {
+            left: -10px;
+            width: 5%;
+            height: 50%;
+            top: 50%;
+        }
+
+        .connection {
+            width: 50%;
+            left: 50%;
+            height: 39%;
+            top: 63%;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: darken($headphones-jack-color, 25%);
+            z-index: 2;
+
+            &:after {
+                width: 100%;
+                height: 21%;
+                top: -21%;
+                background: darken($headphones-jack-color, 43%);
+            }
+        }
+
+        .shadow {
+            width: 50%;
+            height: 5%;
+            top: 70%;
+            left: 50%;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: darken($headphones-jack-color, 50%);
+            z-index: 1;
+        }
+
+        .circle {
+            width: 90%;
+            height: 12%;
+            left: 78%;
+            top: 40%;
+            transform: translate(-50%, 0%);
+            border-radius: 50%;
+            border: 4px solid darken($headphones-jack-color, 30%);
+            background: darken($headphones-jack-color, 43%);
+            z-index: 3;
+        }
+
+        .down-point {
+            width: 140%;
+            height: 20%;
+            top: 27%;
+            transform: translate(-50%, 0%);
+            left: 75%;
+            clip-path: polygon(100% 70%, 100% 0, 0 0, 0 70%, 50% 100%);
+            background: darken($headphones-jack-color, 43%);
+        }
+
+        .adjust-connecton {
+            width: 30px;
+            height: 50px;
+            top: 15px;
+            transform: translate(-50%, 0%);
+            left: 20px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: darken($headphones-jack-color, 35%);
+            z-index: 2;
+        }
+
+        .shadow2 {
+            width: 30px;
+            height: 50px;
+            top: 20px;
+            transform: translate(-50%, 0%);
+            left: 20px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: darken($headphones-jack-color, 50%);
+        }
+
+        .white-part {
+            width: 10px;
+            height: 70px;
+            top: -50px;
+            transform: translate(-50%, 0%);
+            left: 20px;
+            background: darken(#fff, 30%);
+
+            &:after {
+                width: 8px;
+                height: 65px;
+                left: 2px;
+                top: 5px;
+                background: #fff;
+            }
+
+            &:before {
+                width: 30px;
+                height: 50px;
+                top: -50px;
+                left: -10px;
+                background: darken($headphones-jack-color, 35%);
+            }
+        }
+    }
+}
+
+.music-container {
+    height: 100%;
+    width: 100%;
+
+    .note {
+        position: relative;
+        color: white;
+        font-size: 80px;
+    }
+
+    .left {
+        top: 100px;
+        left: -38%;
+        height: 30%;
+        width: 60%;
+
+        .note {
+            animation: music-left 10s linear infinite;
+        }
+        @for $i from 1 through (10) {
+            $size: random(50)+px;
+            $top: percentage(random(50) / 100);
+
+            .note:nth-of-type(#{$i}) {
+                width: $size;
+                height: $size;
+                top: $top;
+                left: 100%;
+                opacity: 0;
+                animation-delay: #{$i} + s;
+            }
+        }
+    }
+
+    .right {
+        top: 100px;
+        left: 76%;
+        height: 30%;
+        width: 60%;
+
+        .note {
+            animation: music-right 10s linear infinite;
+        }
+        @for $i from 1 through (10) {
+            $size: random(50)+px;
+            $top: percentage(random(50) / 100);
+
+            .note:nth-of-type(#{$i}) {
+                width: $size;
+                height: $size;
+                top: $top;
+                left: 0;
+                opacity: 0;
+                animation-delay: #{$i} + s;
+            }
+        }
+    }
+}
+@keyframes music-left {
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        left: 0;
+        opacity: 1;
+    }
+
+    70% {
+        left: 0;
+        opacity: 0;
+    }
+}
+@keyframes music-right {
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        left: 100%;
+        opacity: 1;
+    }
+
+    70% {
+        left: 100%;
+        opacity: 0;
+    }
+}

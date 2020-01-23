@@ -1,0 +1,218 @@
+$background: #b5e8fb;
+$grey: #34495e;
+$dark-grey: #212f3d;
+$red: #cb214a;
+$duration: 5s;
+
+body,
+html {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+
+* {
+	position: absolute;
+}
+
+body {
+	background: $background;
+}
+
+*:after,
+*:before {
+	content: "";
+	position: absolute;
+}
+
+.polaroid {
+	width: 420px;
+	height: 280px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.polaroid-body {
+	width: 100%;
+	height: 100%;
+	border-radius: 40px;
+	background-color: #fff;
+	box-shadow: 10px 10px darken($background, 5%);
+}
+
+.button {
+	width: 10%;
+	height: 5%;
+	top: -2%;
+	left: 14%;
+	background-color: #cb214a;
+	border-radius: 16px;
+	animation: button $duration linear infinite;
+}
+
+.flash {
+	width: 24%;
+	height: 15%;
+	top: -12%;
+	left: 38%;
+	background-color: $grey;
+	border-radius: 8px;
+
+	&:after {
+		width: 36%;
+		height: 60%;
+		background-color: lighten($grey, 30%);
+		border-radius: 5px;
+		top: 10%;
+		left: 32%;
+	}
+}
+
+.blinker {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	background-color: $dark-grey;
+	top: 15%;
+	left: 15%;
+	animation: blinker $duration linear infinite;
+}
+
+.zoom {
+	width: 50%;
+	height: 75%;
+	left: 25%;
+	top: 12.5%;
+	background: $dark-grey;
+	border-radius: 50%;
+	border: 5px solid $grey;
+	box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	animation: zoom $duration linear infinite;
+
+	&:before {
+		width: 80%;
+		height: 80%;
+		top: 10%;
+		left: 10%;
+		border-radius: 50%;
+		background: #2c3e50;
+		border: 10px solid $grey;
+	}
+
+	&:after {
+		width: 40%;
+		height: 40%;
+		top: 30%;
+		left: 30%;
+		border-radius: 50%;
+		background: $dark-grey;
+	}
+}
+
+.reflections {
+	background-color: #fff;
+	opacity: 0.3;
+	width: 100%;
+	height: 100%;
+	left: -35%;
+	top: -35%;
+	z-index: 99;
+	transform: rotate(-45deg);
+
+	&:after {
+		background-color: #fff;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		left: 50%;
+		top: 105%;
+		opacity: 0.5;
+	}
+}
+
+.stripes {
+	height: 7px;
+	width: 50%;
+	right: 0;
+	top: 40%;
+	box-shadow: 0 7px rgb(214, 0, 121), 0 14px rgb(230, 141, 21), 0 21px rgb(254, 200, 3), 0 28px rgb(221, 229, 107), 0 35px rgb(62, 162, 48), 0 42px rgb(1, 136, 194);
+}
+
+.flashlight {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(white, 0.7);
+	transition: all ease 0.2s;
+	opacity: 0;
+	animation: flashlight $duration linear infinite;
+}
+@keyframes button {
+	15%,
+	5% {
+		transform: translateY(0);
+	}
+
+	10% {
+		transform: translateY(10px);
+	}
+}
+@keyframes zoom {
+	10%,
+	30% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(-2deg);
+	}
+
+	15% {
+		transform: rotate(20deg);
+	}
+}
+@keyframes blinker {
+	33%,
+	37%,
+	39%,
+	43%,
+	45%,
+	50% {
+		background-color: $dark-grey;
+	}
+
+	34%,
+	36%,
+	40%,
+	42%,
+	46%,
+	48% {
+		background-color: $red;
+	}
+}
+@keyframes flashlight {
+	55%,
+	65% {
+		opacity: 0;
+	}
+
+	56% {
+		opacity: 1;
+	}
+}

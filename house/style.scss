@@ -1,0 +1,691 @@
+$background: #D5E26E;
+$roof-color: #EE4042;
+$roof-shadow-color: #DB1F2E;
+$roof-shadow-color2: #F36349;
+$window-color: #54C9EA;
+$reflection-color: #ADE1EC;
+$house-color: #FEBF3E;
+$house-shadow-color: #FA9C28;
+$house-shadow-color2: #F47E36;
+$ground-color: #6FBF46;
+$bush-color2: #A6CE39;
+$stair-color: #FFD16F;
+$door-color: #A14E3C;
+$door-shadow-color: #803B2C;
+
+body,
+html {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: $background;
+}
+
+* {
+	position: absolute;
+}
+
+*:after,
+*:before {
+	position: absolute;
+	content: '';
+}
+
+.smoke-container {
+	height: 45%;
+	left: 49%;
+	width: 100px;
+	z-index: -1;
+
+	.smoke {
+		background: #fff;
+		border-radius: 50%;
+		animation: smoke 5s linear infinite;
+	}
+	@for $i from 1 through (10) {
+		$size: random(50)+px;
+		$left: percentage(random(100) / 100);
+
+		.smoke:nth-of-type(#{$i}) {
+			width: $size;
+			height: $size;
+			top: 100%;
+			left: $left;
+			opacity: 0;
+			animation-delay: #{$i} + s;
+		}
+	}
+}
+
+.container {
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	top: 90%;
+	left: 50%;
+	width: 1500px;
+	height: 200px;
+
+	.ground-container {
+		width: 100%;
+	}
+
+	.ground {
+		width: 100%;
+		height: 15px;
+		border-radius: 20px;
+		background: $ground-color;
+		z-index: 5;
+	}
+
+	.bush1 {
+		height: 50px;
+		transform: translate(0%, -100%);
+		left: 13%;
+		width: 15%;
+
+		.big-circle {
+			height: 100px;
+			width: 150px;
+			top: -45px;
+			left: -50px;
+			clip-path: circle(50% at 70% 80%);
+			background-color: $ground-color;
+		}
+
+		.big-circle:nth-child(1) {
+			height: 180px;
+			width: 180px;
+			top: -120px;
+			left: 45px;
+		}
+
+		.small-circles {
+			width: 20px;
+			height: 20px;
+			left: 20px;
+			background-color: $bush-color2;
+			border-radius: 50%;
+
+			&:after {
+				width: 10px;
+				height: 10px;
+				left: 80px;
+				top: 10px;
+				background-color: $bush-color2;
+				border-radius: 50%;
+			}
+
+			&:before {
+				width: 25px;
+				height: 25px;
+				left: 100px;
+				top: -30px;
+				background-color: $bush-color2;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.bush2 {
+		height: 50px;
+		transform: translate(0%, -100%);
+		left: 65%;
+		width: 15%;
+		z-index: 2;
+
+		.big-circle {
+			height: 100px;
+			width: 150px;
+			top: -45px;
+			left: -50px;
+			clip-path: circle(50% at 70% 80%);
+			background-color: $bush-color2;
+		}
+
+		.big-circle:nth-child(1) {
+			height: 150px;
+			width: 150px;
+			top: -100px;
+			left: 45px;
+			clip-path: circle(50% at 50% 70%);
+		}
+
+		.big-circle:nth-child(2) {
+			height: 80px;
+			width: 80px;
+			top: -20px;
+			left: 150px;
+			clip-path: circle(50% at 50% 70%);
+		}
+
+		.small-circles {
+			width: 30px;
+			height: 30px;
+			left: 20px;
+			top: 10px;
+			background-color: $background;
+			border-radius: 50%;
+
+			&:after {
+				width: 10px;
+				height: 10px;
+				left: 130px;
+				top: 0;
+				background-color: $background;
+				border-radius: 50%;
+			}
+
+			&:before {
+				width: 25px;
+				height: 25px;
+				left: 100px;
+				top: -50px;
+				background-color: $background;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.bush3 {
+		height: 50px;
+		transform: translate(0%, -100%);
+		left: 66%;
+		top: -100px;
+		width: 10px;
+		background: #fff;
+
+		.big-circle {
+			height: 150px;
+			width: 150px;
+			top: -30px;
+			left: -40px;
+			clip-path: circle(50% at 50% 50%);
+			background-color: $ground-color;
+		}
+	}
+
+	.side1 {
+		top: -20px;
+		left: 20%;
+		height: 430px;
+		width: 400px;
+		clip-path: polygon(100% 35%, 100% 100%, 0 100%, 0 35%, 50% 0);
+		transform: translate(0%, -100%) perspective(2500px) rotateY(-45deg);
+		transform-style: preserve-3d;
+		background: $house-color;
+
+		.shadow {
+			height: 25px;
+			width: 68%;
+			top: 75px;
+			left: 40%;
+			background: $house-shadow-color;
+			transform: rotate(37deg);
+		}
+
+		.shadow2 {
+			height: 25px;
+			width: 68%;
+			top: 75px;
+			left: -9%;
+			background: $house-shadow-color;
+			transform: rotate(-37deg);
+		}
+
+		.circle-window {
+			height: 80px;
+			width: 110px;
+			transform: translate(-50%, -50%);
+			top: 30%;
+			left: 50%;
+			background: $house-shadow-color2;
+			border-radius: 50%;
+			overflow: hidden;
+
+			&:after {
+				height: 65px;
+				width: 80px;
+				transform: translate(-50%, -50%);
+				left: 75%;
+				top: 50%;
+				border: 10px solid #fff;
+				background: $window-color;
+				border-radius: 50%;
+			}
+
+			.reflections {
+				background-color: #fff;
+				opacity: 0.3;
+				width: 150%;
+				height: 10px;
+				left: 15%;
+				top: -20%;
+				border-radius: 20px;
+				transform: rotate(-45deg);
+				z-index: 2;
+
+				&:after {
+					background-color: #fff;
+					opacity: 0.5;
+					width: 150%;
+					height: 20px;
+					top: 250%;
+					left: -5%;
+					transform: rotate(0deg);
+					border-radius: 20px;
+				}
+			}
+		}
+
+		.door {
+			width: 180px;
+			height: 50%;
+			background: $door-color;
+			transform: translate(-50%, 0%);
+			top: 50%;
+			left: 47.5%;
+
+			&:after {
+				width: 100%;
+				height: 20px;
+				background: $door-shadow-color;
+			}
+
+			&:before {
+				width: 40px;
+				height: 100%;
+				left: -40px;
+				background: $house-shadow-color2;
+			}
+		}
+
+		.dot {
+			background: $house-shadow-color;
+		}
+
+		.dot:nth-child(3) {
+			top: 170px;
+			left: 300px;
+		}
+
+		.dot:nth-child(4) {
+			top: 380px;
+			left: 8px;
+		}
+
+		.dot:nth-child(5) {
+			top: 280px;
+			left: 340px;
+		}
+
+		.dot:nth-child(6) {
+			top: 320px;
+			left: 300px;
+		}
+
+		.dot:nth-child(7) {
+			top: 170px;
+			left: 15px;
+		}
+	}
+
+	.dot {
+		width: 50px;
+		height: 15px;
+		background: $house-shadow-color2;
+		border-radius: 20px;
+	}
+
+	.lower-side {
+		background: $house-shadow-color;
+		height: 40px;
+		width: 90px;
+		top: 0;
+		left: 37.2%;
+		transform: translate(0%, -100%);
+		z-index: 2;
+	}
+
+	.lower-side2 {
+		height: 40px;
+		width: 354px;
+		top: 0;
+		left: 43.2%;
+		background: $house-shadow-color2;
+		transform: translate(0%, -100%);
+	}
+
+	.first-stair {
+		width: 150px;
+		height: 20px;
+		left: 22%;
+		background: $house-color;
+		transform: translate(0%, -100%);
+
+		&:after {
+			width: 80px;
+			height: 20px;
+			left: 100%;
+			top: 100%;
+			background: $house-shadow-color2;
+			transform: translate(0%, -100%);
+		}
+	}
+
+	.second-stair {
+		width: 135px;
+		height: 20px;
+		left: 25%;
+		top: -10%;
+		background: $stair-color;
+		transform: translate(0%, -100%);
+
+		&:before {
+			width: 30px;
+			height: 20px;
+			left: -30px;
+			top: 100%;
+			background: $house-shadow-color;
+			transform: translate(0%, -100%);
+		}
+
+		&:after {
+			width: 80px;
+			height: 20px;
+			left: 100%;
+			top: 100%;
+			background: $house-shadow-color2;
+			transform: translate(0%, -100%);
+		}
+	}
+
+	.side2 {
+		top: -20px;
+		left: 38.5%;
+		height: 280px;
+		width: 500px;
+		transform: translate(0%, -100%) perspective(10000px) rotateY(45deg);
+		background: $house-shadow-color;
+
+		.dot {
+			top: 230px;
+			left: 50px;
+		}
+
+		.dot:nth-child(1) {
+			left: 275px;
+			top: 0;
+		}
+
+		.dot:nth-child(2) {
+			left: 380px;
+			top: -160px;
+		}
+
+		.square-window {
+			height: 75px;
+			width: 100px;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 25%;
+			border: 10px solid #fff;
+			background: $window-color;
+			overflow: hidden;
+
+			.reflections {
+				background-color: $reflection-color;
+				width: 150%;
+				height: 30px;
+				left: -20%;
+				top: 10%;
+				transform: rotate(-45deg);
+
+				&:after {
+					background-color: $reflection-color;
+					width: 150%;
+					height: 40px;
+					left: -30%;
+					top: 150%;
+					transform: rotate(0deg);
+				}
+			}
+		}
+
+		.square-window:nth-child(1) {
+			left: 75%;
+		}
+
+		.window-shadows {
+			top: 93px;
+			left: 37%;
+			width: 20px;
+			height: 95px;
+			background: $house-color;
+
+			&:after {
+				left: 250px;
+				width: 20px;
+				height: 95px;
+				background: $house-color;
+			}
+		}
+
+		.window-frames {
+			width: 140px;
+			height: 7px;
+			top: 66%;
+			left: 32%;
+			transform: translate(-50%, 0%);
+			background: $roof-shadow-color;
+
+			.start {
+				left: -18%;
+				width: 25px;
+				height: 7px;
+				background: $roof-color;
+
+				&:after {
+					left: 250px;
+					width: 25px;
+					height: 7px;
+					background: $roof-color;
+				}
+			}
+
+			.shadow {
+				top: 7px;
+				left: -18%;
+				width: 100%;
+				height: 20px;
+				background: $house-shadow-color2;
+
+				&:after {
+					left: 250px;
+					width: 100%;
+					height: 20px;
+					background: $house-shadow-color2;
+				}
+			}
+
+			&:after {
+				width: 140px;
+				height: 7px;
+				left: 320px;
+				transform: translate(-50%, 0%);
+				background: $roof-shadow-color;
+			}
+		}
+	}
+
+	.roof-container {
+		top: -240%;
+		left: 33%;
+
+		.roof {
+			top: 4px;
+			left: 5px;
+			width: 520px;
+			height: 150px;
+			background: $roof-color;
+			clip-path: polygon(0 0, 70% 0, 100% 100%, 29% 100%);
+
+			.dot {
+				background: $roof-shadow-color;
+				width: 65px;
+				left: 20%;
+				top: 20%;
+			}
+
+			.dot:nth-child(1) {
+				left: 25%;
+				top: 55%;
+			}
+
+			.dot:nth-child(2) {
+				left: 55%;
+				top: 75%;
+			}
+
+			.dot:nth-child(3) {
+				left: 65%;
+				top: 45%;
+			}
+		}
+
+		.chimney {
+			width: 80px;
+			height: 125px;
+			top: -60px;
+			left: 270px;
+
+			.front {
+				width: 65%;
+				height: 75%;
+				bottom: 0;
+				background: $roof-shadow-color;
+
+				&:after {
+					width: 100%;
+					height: 15px;
+					top: 0;
+					background: #C31B28;
+				}
+
+				&:before {
+					width: 35%;
+					height: 15px;
+					top: 0;
+					left: -30%;
+					background: #d92230;
+				}
+			}
+
+			.side {
+				width: 20%;
+				height: 75%;
+				left: -20%;
+				bottom: 0;
+				background: $roof-shadow-color2;
+				clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+			}
+
+			.top {
+				width: 90%;
+				height: 20px;
+				top: 12px;
+				background: $roof-color;
+
+				&:after {
+					width: 40%;
+					height: 20px;
+					background: $roof-shadow-color2;
+					left: -40%;
+				}
+			}
+		}
+
+		.border {
+			width: 370px;
+			height: 25px;
+			left: 153px;
+			top: 150px;
+			background: $roof-shadow-color;
+
+			&:after {
+				width: 354px;
+				height: 30px;
+				top: 100%;
+				background: $house-shadow-color2;
+			}
+
+			&:before {
+				height: 25px;
+				width: 58%;
+				top: -70px;
+				left: -48%;
+				background: $roof-shadow-color2;
+				transform: rotate(44deg);
+				z-index: -1;
+			}
+		}
+
+		.border2 {
+			height: 20px;
+			width: 254px;
+			top: 95px;
+			left: -200px;
+			background: $roof-shadow-color2;
+			transform: rotate(-48.5deg);
+
+			&:after {
+				height: 40px;
+				width: 20px;
+				top: -15px;
+				left: -10px;
+				background: $background;
+				transform: rotate(48.5deg);
+			}
+		}
+
+		.behind {
+			height: 30px;
+			width: 20px;
+			top: 175px;
+			left: -147px;
+			background: $roof-shadow-color;
+			z-index: -1;
+		}
+	}
+}
+@keyframes smoke {
+	0% {
+		top: 100%;
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	50% {
+		top: 0;
+		opacity: 1;
+	}
+
+	70% {
+		top: 0;
+		opacity: 0;
+	}
+
+	100% {
+		top: 100%;
+		opacity: 0;
+	}
+}

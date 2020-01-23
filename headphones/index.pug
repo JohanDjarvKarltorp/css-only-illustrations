@@ -1,0 +1,58 @@
+doctype html
+html
+	head
+		title headphones
+		link(rel='stylesheet', href='./style.css')
+		meta(charset='utf-8')
+	body
+		.container
+			.headphone-jack
+			.headphone-jack-base
+			.cord-container
+				- for (var i = 0; i < 7; i++)
+					.cord
+			.earcup-right
+				.cord-connection
+				.earcup
+				.earcup-shadow
+				.earcup-connection
+				.main-connection
+					.headrest-connection
+					
+			.earcup-left
+				.earcup
+				.earcup-shadow
+				.earcup-connection
+				.main-connection
+					.headrest-connection
+			.headrest-container
+				.right
+					.connection
+					.shadow
+					.circle
+					.down-point
+					.adjust-connecton
+					.shadow2
+					.white-part
+				.left
+					.connection
+					.shadow
+					.circle
+					.down-point
+					.adjust-connecton
+					.shadow2
+					.white-part
+				.headrest
+				.headrest-shadow
+				
+				
+			.music-container
+				.left
+					- for (var i = 0; i < 10; i++)
+						.note
+							p ♪
+						
+				.right
+					- for (var i = 0; i < 10; i++)
+						.note
+							p ♪

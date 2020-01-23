@@ -1,0 +1,65 @@
+doctype html
+html
+	head
+		title house
+		link(rel='stylesheet', href='./style.css')
+		meta(charset='utf-8')
+	body
+		.container
+			.ground-container
+				.bush1
+					- for (var i = 0; i < 2; i++)
+						.big-circle
+					.small-circles
+				.bush2
+					- for (var i = 0; i < 3; i++)
+						.big-circle
+					.small-circles
+				.bush3
+					.big-circle
+				.ground
+				
+			.side1
+				.circle-window
+					.reflections
+				.door
+				- for (var i = 0; i < 5; i++)
+					.dot
+				.shadow
+				.shadow2
+			.side2
+				.square-window
+					.reflections
+				.square-window
+					.reflections
+					
+				.window-shadows
+				.window-frames
+					.start
+					.shadow
+							
+				.dot
+					.dot
+					.dot
+
+			.lower-side
+			.lower-side2
+			.first-stair
+			.second-stair
+			
+			.roof-container
+				.roof
+					- for (var i = 0; i < 4; i++)
+						.dot
+				.chimney
+					.side
+					.front
+					.top
+				.border
+				.border2
+				.behind
+			
+		.smoke-container
+			- for (var i = 0; i < 10; i++)
+				.smoke
+					
