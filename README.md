@@ -1,12 +1,12 @@
 # css-only-illustrations
-All parts of the illustration image is html tags that are styled with css. Animations is done with key frames and/or Javascript.
+All parts of the illustration image are html tags that are styled with css. Animation is done with key frames and/or Javascript.
 
-All the illustrations uses [scss](https://sass-lang.com/) stylesheet and [pug-cli](https://github.com/pugjs/pug-cli) template engine to get more powerful tools to use such as loops inside both html and css. Sccs and pug also gives to code a cleaner syntax that makes it more understandable and more readible.
+All the illustrations use a [scss](https://sass-lang.com/) stylesheet and [pug-cli](https://github.com/pugjs/pug-cli) template engine to get more powerful tools to use such as loops inside both html and css. Sccs and pug also give the code a cleaner syntax that makes it more understandable and more readable.
 
 
 **Smiley_face**, **Polaroid** and **lighthouse** is based on Agathe Cocco tutorial. [Link here.](https://dev.to/agathacco/how-to-create-pure-css-illustrations-and-animate-them---part-1-1j1k)
 
-**Rocket**, **House** and **Headphones** are my own creations from scratch with the knowledge learned from the above mention tutorial.
+**Rocket**, **House** and **Headphones** are my own creations from scratch with the knowledge learned from the above mentioned tutorial.
 
 ## Demo
 [Smiley_face](https://johandjarvkarltorp.github.io/css-only-illustrations/smiley_face)
